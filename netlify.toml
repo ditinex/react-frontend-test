@@ -4,3 +4,7 @@
   REACT_APP_URI = "https://61a51d7f2ff77e00082c2a84--wizardly-hugle-1ee06a.netlify.app"
   REACT_APP_API_URI = "https://ditinex-test-puc.herokuapp.com/v1"
 
+[[redirects]]
+  from = "/*"
+  to = "/"
+  status = 200
