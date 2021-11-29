@@ -1,7 +1,7 @@
 [build.environment]
   REACT_APP_FB_ID = "228978622682139"
   REACT_APP_FB_SECRET = "3d068c172d4e226d60bf4b5abcb1c762"
-  REACT_APP_URI = "https://61a51d7f2ff77e00082c2a84--wizardly-hugle-1ee06a.netlify.app"
+  REACT_APP_URI = "https://wizardly-hugle-1ee06a.netlify.app"
   REACT_APP_API_URI = "https://ditinex-test-puc.herokuapp.com/v1"
 
 [[redirects]]
