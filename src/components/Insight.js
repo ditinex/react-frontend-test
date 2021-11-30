@@ -17,8 +17,10 @@ const Insight = () => {
     const [loading,setLoading] = useState(false)
 
     useEffect(() => {
-        if (search !== '')
+        if (search !== ''){
             alert('Failed to share.')
+            getDbInsights()
+        }
         else if (hash !== '') {
             //Shared successfully
             verifyIsPostedInFacebook()
@@ -76,7 +78,9 @@ const Insight = () => {
                         <div key={item.post_id} style={{margin: 10, borderWidth: 1}}>
                             <p>Post Id : <a href={item.parmalink_url} rel="noreferrer" target="_blank">{item.post_id}</a></p>
                             <p>Reactions : {item.insight.reactions}</p>
+                            <p>Summary : {JSON.stringify(item.reaction_summary)}</p>
                             <p>Comments : {item.insight.comments}</p>
+                            <p>Summary : {JSON.stringify(item.comment_summary)}</p>
                         </div>
                     )
                 })

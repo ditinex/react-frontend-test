@@ -119,7 +119,12 @@ const LoginButton = () => {
 }
 
 const ShareButton = ({ userData }) => {
-    const shareUrl = userData ? 'https://www.facebook.com/dialog/share?app_id=' + process.env.REACT_APP_FB_ID + '&href=https://stackoverflow.com/questions/49283231/using-facebook-graph-api-to-post-on-user-wall&quote=Hello+WOrld&redirect_uri=' + process.env.REACT_APP_URI + '/insight/' + userData.id : '/'
+    
+    const [link,setLink] = useState('https://stackoverflow.com/questions/49283231/using-facebook-graph-api-to-post-on-user-wall')
+    const [quote,setQuote] = useState('This is stack..')
+    const [hashtag,setHashtag] = useState('#stackoverflow')
+    
+    const shareUrl = userData ? 'https://www.facebook.com/dialog/share?app_id=' + process.env.REACT_APP_FB_ID + '&href='+encodeURIComponent(link)+'&hashtag='+encodeURIComponent(hashtag)+'&quote='+encodeURIComponent(quote)+'&redirect_uri=' + process.env.REACT_APP_URI + '/insight/' + userData.id : '/'
 
     return (
         <div style={{ textAlign: 'center', marginTop: 100 }}>
@@ -131,6 +136,24 @@ const ShareButton = ({ userData }) => {
                     <p>Loading user data ...</p>
             }
 
+            <div style={{borderWidth: 1, borderColor: '#000'}}>
+            <label>
+            Link:
+            <input type="text" value={link} onChange={(event)=>setLink(event.target.value)} />
+            </label>
+            </div>
+            <div style={{borderWidth: 1, borderColor: '#000'}}>
+            <label>
+            Hashtag:
+            <input type="text" value={hashtag} onChange={(event)=>setHashtag(event.target.value)} />
+            </label>
+            </div>
+            <div style={{borderWidth: 1, borderColor: '#000'}}>
+            <label>
+                Quote:
+                <textarea value={quote} onChange={(event)=>setQuote(event.target.value)} />
+                </label>
+            </div>
             <a href={shareUrl} className="fb btn">
                 Share On Facebook
             </a>
